@@ -9,7 +9,7 @@ public readonly struct CardId : IEquatable<CardId>
     public CardId(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
-            throw new ArgumentExeption("card id must not be empty");
+            throw new ArgumentException("card id must not be empty");
 
         _value = value;
     }
