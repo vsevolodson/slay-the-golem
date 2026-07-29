@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 
 namespace Game.Core.State
 {
+    [JsonObject(MemberSerialization.OptIn)]
     public sealed class EnemySide
     {
         [JsonProperty] public Combatant Combatant { get; private set; }

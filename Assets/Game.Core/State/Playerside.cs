@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 
 namespace Game.Core.State
 {
+    [JsonObject(MemberSerialization.OptIn)]
     public sealed class PlayerSide
     {
         [JsonProperty] private List<CardId> _drawPile;
