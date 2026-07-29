@@ -1,6 +1,9 @@
-public enum CombatOutcome
+namespace Game.Core.State
 {
-    InProgress,
-    PlayerWon,
-    PlayerLost
+    public enum CombatOutcome
+    {
+        InProgress,
+        PlayerWon,
+        PlayerLost
+    }
 }

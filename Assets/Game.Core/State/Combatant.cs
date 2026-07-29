@@ -1,55 +1,58 @@
 using System;
 using Newtonsoft.Json;
 
-public sealed class Combatant
+namespace Game.Core.State
 {
-    [JsonProperty] public int MaxHealth { get; private set; }
-    [JsonProperty] public int Health { get; private set; }
-    [JsonProperty] public int Block { get; private set; }
-
-    public Combatant(int maxHealth, int health)
+    public sealed class Combatant
     {
-        if (maxHealth <= 0)
-            throw new ArgumentOutOfRangeException(nameof(maxHealth), "max health must be positive");
-        if (health <= 0 || health > maxHealth)
-            throw new ArgumentOutOfRangeException(nameof(health), "health must be berween 1 and max health");
-        
-        MaxHealth = maxHealth;
-        Health = health;
-        Block = 0;
-    }
+        [JsonProperty] public int MaxHealth { get; private set; }
+        [JsonProperty] public int Health { get; private set; }
+        [JsonProperty] public int Block { get; private set; }
 
-    [JsonConstructor]
-    private Combatant() { }
+        public Combatant(int maxHealth, int health)
+        {
+            if (maxHealth <= 0)
+                throw new ArgumentOutOfRangeException(nameof(maxHealth), "max health must be positive");
+            if (health <= 0 || health > maxHealth)
+                throw new ArgumentOutOfRangeException(nameof(health), "health must be berween 1 and max health");
 
-    public bool IsDead => Health <= 0;
+            MaxHealth = maxHealth;
+            Health = health;
+            Block = 0;
+        }
 
-    internal void ReduceHealth(int amount)
-    {
-        if (amount < 0)
-            throw new ArgumentOutOfRangeException(nameof(amount), "damage must not be negative");
+        [JsonConstructor]
+        private Combatant() { }
 
-        Health = Math.Max(0, Health - amount);
-    }
+        public bool IsDead => Health <= 0;
 
-    internal void AddBlock(int amount)
-    {
-        if (amount < 0)
-            throw new ArgumentOutOfRangeException(nameof(amount), "block must not be negative");
-        
-        Block += amount;
-    }
+        internal void ReduceHealth(int amount)
+        {
+            if (amount < 0)
+                throw new ArgumentOutOfRangeException(nameof(amount), "damage must not be negative");
 
-    internal void ReduceBlock(int amount)
-    {
-        if (amount < 0)
-            throw new ArgumentOutOfRangeException(nameof(amount), "reduce block must not be negative");
+            Health = Math.Max(0, Health - amount);
+        }
 
-        Block = Math.Max(0, Block - amount);
-    }
+        internal void AddBlock(int amount)
+        {
+            if (amount < 0)
+                throw new ArgumentOutOfRangeException(nameof(amount), "block must not be negative");
 
-    internal void ClearBlock()
-    {
-        Block = 0;
+            Block += amount;
+        }
+
+        internal void ReduceBlock(int amount)
+        {
+            if (amount < 0)
+                throw new ArgumentOutOfRangeException(nameof(amount), "reduce block must not be negative");
+
+            Block = Math.Max(0, Block - amount);
+        }
+
+        internal void ClearBlock()
+        {
+            Block = 0;
+        }
     }
 }

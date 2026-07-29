@@ -1,6 +1,6 @@
 {
     "name": "Game.Core",
-    "rootNamespace": "",
+    "rootNamespace": "Game.Core",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,30 +1,33 @@
 using System;
 using Newtonsoft.Json;
 
-public sealed class EnemySide
+namespace Game.Core.State
 {
-    [JsonProperty] public Combatant Combatant { get; private set; }
-    [JsonProperty] public string EnemyId { get; private set; }
-    [JsonProperty] public int IntentIndex { get; private set; }
-    
-    internal EnemySide(Combatant combatant, string enemyId)
+    public sealed class EnemySide
     {
-        if (string.IsNullOrWhiteSpace(enemyId))
-            throw new ArgumentException("enemy id must not be empty");
+        [JsonProperty] public Combatant Combatant { get; private set; }
+        [JsonProperty] public string EnemyId { get; private set; }
+        [JsonProperty] public int IntentIndex { get; private set; }
 
-        Combatant = combatant ?? throw new ArgumentNullException(nameof(combatant));
-        EnemyId = enemyId;
-        IntentIndex = 0;
-    }
+        internal EnemySide(Combatant combatant, string enemyId)
+        {
+            if (string.IsNullOrWhiteSpace(enemyId))
+                throw new ArgumentException("enemy id must not be empty");
 
-    [JsonConstructor]
-    private EnemySide() {}
+            Combatant = combatant ?? throw new ArgumentNullException(nameof(combatant));
+            EnemyId = enemyId;
+            IntentIndex = 0;
+        }
 
-    internal void SetIntentIndex(int index)
-    {
-        if (index < 0)
-            throw new ArgumentOutOfRangeException(nameof(index), "intent index must not be negative");
-        
-        IntentIndex = index;
+        [JsonConstructor]
+        private EnemySide() {}
+
+        internal void SetIntentIndex(int index)
+        {
+            if (index < 0)
+                throw new ArgumentOutOfRangeException(nameof(index), "intent index must not be negative");
+
+            IntentIndex = index;
+        }
     }
 }

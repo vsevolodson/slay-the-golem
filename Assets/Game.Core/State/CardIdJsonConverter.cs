@@ -1,18 +1,21 @@
 using System;
 using Newtonsoft.Json;
 
-internal sealed class CardIdJsonConverter : JsonConverter<CardId>
+namespace Game.Core.State
 {
-    public override void WriteJson(JsonWriter writer, CardId value, JsonSerializer serializer)
+    internal sealed class CardIdJsonConverter : JsonConverter<CardId>
     {
-        writer.WriteValue(value.Value);
-    }
+        public override void WriteJson(JsonWriter writer, CardId value, JsonSerializer serializer)
+        {
+            writer.WriteValue(value.Value);
+        }
 
-    public override CardId ReadJson(JsonReader reader, Type objectType, CardId existingValue, bool hasExistingValue, JsonSerializer serializer)
-    {
-        if (reader.TokenType == JsonToken.Null)
-            return default;
+        public override CardId ReadJson(JsonReader reader, Type objectType, CardId existingValue, bool hasExistingValue, JsonSerializer serializer)
+        {
+            if (reader.TokenType == JsonToken.Null)
+                return default;
 
-        return new CardId((string)reader.Value);
+            return new CardId((string)reader.Value);
+        }
     }
 }

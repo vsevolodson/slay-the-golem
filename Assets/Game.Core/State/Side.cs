@@ -1,5 +1,8 @@
-public enum Side
+namespace Game.Core.State
 {
-    Player,
-    Enemy
+    public enum Side
+    {
+        Player,
+        Enemy
+    }
 }
