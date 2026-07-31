@@ -4,6 +4,7 @@ using Game.Core;
 using Game.Core.Commands;
 using Game.Core.Data;
 using Game.Core.State;
+using Game.Core.Effects;
 using NUnit.Framework;
 
 namespace Game.Core.Tests
@@ -14,7 +15,7 @@ namespace Game.Core.Tests
         private static readonly CardId Defend = new CardId("defend");
 
         private static CombatConfig MakeConfig() => new CombatConfig(
-            new CardCatalog(new[] { new CardDefinition(Strike, 1), new CardDefinition(Defend, 1) }),
+            new CardCatalog(new[] { new CardDefinition(Strike, 1, new IEffect[] { new BlockEffect(0) }), new CardDefinition(Defend, 1, new IEffect[] { new DamageEffect(0)}) }),
             new CombatRules(energyPerTurn: 3, cardsDrawnPerTurn: 5));
 
         private static CombatSetup MakeSetup(IReadOnlyList<CardId> deck) =>
