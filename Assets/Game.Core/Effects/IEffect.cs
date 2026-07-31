@@ -3,8 +3,8 @@ using Game.Core.State;
 
 namespace Game.Core.Effects
 {
-    public interface IEffects
+    public interface IEffect
     {
-        void apply(EffectContext context);
+        void Apply(EffectContext context);
     }
 }
