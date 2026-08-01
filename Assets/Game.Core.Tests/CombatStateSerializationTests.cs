@@ -20,6 +20,8 @@ namespace Game.Core.Tests
             state.Enemy.SetIntentIndex(1);
             state.AdvanceTurnNumber();
             state.SetActiveSide(Side.Enemy);
+            state.Player.Combatant.AddPoison(2);
+            state.Enemy.Combatant.AddVulnerable(1);
 
             return state;
         }

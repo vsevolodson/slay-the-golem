@@ -16,9 +16,12 @@ namespace Game.Core.Effects
 
         public void Apply(EffectContext context)
         {
-            var target = context.OpponentCombotant;
+            var target = context.OpponentCombatant;
 
             var damage = _amount;
+
+            if (target.Vulnerable > 0)
+                damage = damage * 3 / 2;
 
             var absorbed = Math.Min(target.Block, damage);
             target.ReduceBlock(absorbed);

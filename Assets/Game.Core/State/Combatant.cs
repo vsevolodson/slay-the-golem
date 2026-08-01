@@ -9,6 +9,8 @@ namespace Game.Core.State
         [JsonProperty] public int MaxHealth { get; private set; }
         [JsonProperty] public int Health { get; private set; }
         [JsonProperty] public int Block { get; private set; }
+        [JsonProperty] public int Poison { get; private set; }
+        [JsonProperty] public int Vulnerable { get; private set; }
 
         public Combatant(int maxHealth, int health)
         {
@@ -54,6 +56,38 @@ namespace Game.Core.State
         internal void ClearBlock()
         {
             Block = 0;
+        }
+        
+        internal void AddPoison(int amount)
+        {
+            if (amount < 0)
+                throw new ArgumentOutOfRangeException(nameof(amount), "poison must not be negative");
+
+            Poison += amount;
+        }
+
+        internal void ReducePoison(int amount)
+        {
+            if (amount < 0)
+                throw new ArgumentOutOfRangeException(nameof(amount), "poison must not be negative");
+
+            Poison = Math.Max(0, Poison - amount);
+        }
+
+        internal void AddVulnerable(int amount)
+        {
+            if (amount < 0)
+                throw new ArgumentOutOfRangeException(nameof(amount), "vulnerable must not be negative");
+
+            Vulnerable += amount;
+        }
+
+        internal void ReduceVulnerable(int amount)
+        {
+            if (amount < 0)
+                throw new ArgumentOutOfRangeException(nameof(amount), "vulnerable must not be negative");
+
+            Vulnerable = Math.Max(0, Vulnerable - amount);
         }
     }
 }
