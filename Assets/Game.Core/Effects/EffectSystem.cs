@@ -25,6 +25,20 @@ namespace Game.Core.Effects
             UpdateOutcome();
         }
 
+        internal void Apply(IReadOnlyList<IEffect> effects, Side actor)
+        {
+            if (effects == null)
+                throw new ArgumentNullException(nameof(effects));
+
+            foreach (var effect in effects)
+            {
+                if (_state.Outcome != CombatOutcome.InProgress)
+                    return;
+
+                Apply(effect, actor);
+            }
+        }
+
         private void UpdateOutcome()
         {
             if (_state.Player.Combatant.IsDead)

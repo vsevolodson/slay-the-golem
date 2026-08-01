@@ -4,6 +4,7 @@ using System.Linq;
 using Game.Core.Commands;
 using Game.Core.Data;
 using Game.Core.State;
+using Game.Core.Effects;
 
 namespace Game.Core
 {
@@ -11,6 +12,7 @@ namespace Game.Core
     {
         private readonly CombatConfig _config;
         private readonly TurnFlow _turnFlow;
+        private readonly EffectSystem _effects;
 
         public CombatState State { get; }
 
@@ -22,6 +24,7 @@ namespace Game.Core
             RequireKnownCards(state, config.Cards);
 
             _turnFlow = new TurnFlow(state, config.Rules);
+            _effects = new EffectSystem(state);
         }
 
         public static Combat StartNew(CombatSetup setup, CombatConfig config)
@@ -101,6 +104,7 @@ namespace Game.Core
 
             State.Player.SpendEnergy(definition.Cost);
             State.Player.RemoveFromHand(command.Card);
+            _effects.Apply(definition.Effects, Side.Player);
             State.Player.AddToDiscard(command.Card);
         }
 
