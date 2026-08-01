@@ -17,6 +17,6 @@ namespace Game.Core.Effects
         public Side Opponent { get; }
 
         public Combatant ActorCombatant => State.GetCombatant(Actor);
-        public Combatant OpponentCombotant => State.GetCombatant(Opponent);
+        public Combatant OpponentCombatant => State.GetCombatant(Opponent);
     }
 }
