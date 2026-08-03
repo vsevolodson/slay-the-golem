@@ -31,6 +31,7 @@ namespace Game.Core
         {
             var combat = new Combat(CombatState.Create(setup), config);
 
+            combat.ShuffleStartingDeck();
             combat._turnFlow.BeginPlayerTurn();
 
             return combat;
@@ -133,6 +134,14 @@ namespace Game.Core
                 if (!cards.Contains(card))
                     throw new ArgumentException($"card '{card}' is not in the catalog");
             }
+        }
+
+        private void ShuffleStartingDeck()
+        {
+            var deck = new List<CardId>(State.Player.DrawPile);
+            ShuffleRules.Shuffle(deck, State.Rng);
+
+            State.Player.SetDrawPile(deck);
         }
     }
 }

@@ -52,7 +52,7 @@ namespace Game.Core.Tests
             Assert.AreEqual(original.Enemy.IntentIndex, restored.Enemy.IntentIndex);
             Assert.AreEqual(original.TurnNumber, restored.TurnNumber);
             Assert.AreEqual(original.ActiveSide, restored.ActiveSide);
-            Assert.AreEqual(original.Seed, restored.Seed);
+            Assert.AreEqual(original.Rng.Next(1000), restored.Rng.Next(1000));
         }
     }
 }

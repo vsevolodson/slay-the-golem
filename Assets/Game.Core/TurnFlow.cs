@@ -33,7 +33,7 @@ namespace Game.Core
                 return;
 
             _state.Player.Combatant.ReduceVulnerable(1);
-            DrawRules.Draw(_state.Player, _rules.CardsDrawnPerTurn);
+            DrawRules.Draw(_state.Player, _rules.CardsDrawnPerTurn, _state.Rng);
             _state.Player.SetEnergy(_rules.EnergyPerTurn);
         }
 

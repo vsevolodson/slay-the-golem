@@ -1,5 +1,6 @@
 using System;
 using Newtonsoft.Json;
+using Game.Core.Rng;
 
 namespace Game.Core.State
 {
@@ -13,13 +14,13 @@ namespace Game.Core.State
         [JsonProperty] public Side ActiveSide { get; private set; }
         [JsonProperty] public CombatOutcome Outcome { get; private set; }
 
-        [JsonProperty] public ulong Seed { get; private set; }
+        [JsonProperty] public XorShiftRng Rng { get; private set; }
 
         private CombatState(PlayerSide player, EnemySide enemy, ulong seed)
         {
             Player = player;
             Enemy = enemy;
-            Seed = seed;
+            Rng = new XorShiftRng(seed);
             TurnNumber = 0;
             ActiveSide = Side.Player;
             Outcome = CombatOutcome.InProgress;
