@@ -54,6 +54,7 @@ namespace Game.Core
 
             _effects.Apply(PoisonTick, Side.Enemy);
             if (_state.Outcome != CombatOutcome.InProgress)
+                return
 
             _state.Enemy.Combatant.ReduceVulnerable(1);
         }
