@@ -44,6 +44,8 @@ namespace Game.Core
                 _state.Player.RemoveFromHand(card);
                 _state.Player.AddToDiscard(card);
             }
+
+            _state.Player.SetEnergy(0);
         }
 
         internal void RunEnemyTurn()
@@ -54,7 +56,7 @@ namespace Game.Core
 
             _effects.Apply(PoisonTick, Side.Enemy);
             if (_state.Outcome != CombatOutcome.InProgress)
-                return
+                return;
 
             _state.Enemy.Combatant.ReduceVulnerable(1);
         }
