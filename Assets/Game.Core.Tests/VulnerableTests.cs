@@ -91,6 +91,7 @@ namespace Game.Core.Tests
                     new CardDefinition(Strike, 1, new IEffect[] { new DamageEffect(6) }),
                     new CardDefinition(Bash, 2, new IEffect[] { new DamageEffect(8), new ApplyVulnerableEffect(2) })
                 }),
+                TestContent.RatBruiser(),
                 new CombatRules(energyPerTurn: 3, cardsDrawnPerTurn: 5));
 
             var deck = new List<CardId> { Strike, Bash, Strike, Bash, Strike };

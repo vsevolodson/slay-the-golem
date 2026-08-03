@@ -13,8 +13,10 @@ namespace Game.Core
         private readonly CombatConfig _config;
         private readonly TurnFlow _turnFlow;
         private readonly EffectSystem _effects;
+        private readonly EnemyDefinition _enemy;
 
         public CombatState State { get; }
+        public EnemyIntent EnemyIntent => _enemy.Cycle[State.Enemy.IntentIndex];
 
         private Combat(CombatState state, CombatConfig config)
         {
@@ -23,7 +25,8 @@ namespace Game.Core
 
             RequireKnownCards(state, config.Cards);
 
-            _turnFlow = new TurnFlow(state, config.Rules);
+            _enemy = config.Enemies.Get(state.Enemy.EnemyId);
+            _turnFlow = new TurnFlow(state, config.Rules, _enemy);
             _effects = new EffectSystem(state);
         }
 

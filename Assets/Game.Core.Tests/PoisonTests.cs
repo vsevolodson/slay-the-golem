@@ -86,7 +86,7 @@ namespace Game.Core.Tests
         public void PlayerDyingFromPoison_GetsNoTurn()
         {
             var combat = StartCombat();
-            combat.State.Player.Combatant.ReduceHealth(48);
+            combat.State.Player.Combatant.ReduceHealth(40);
             combat.State.Player.Combatant.AddPoison(5);
 
             combat.Execute(new EndTurnCommand());
@@ -103,6 +103,7 @@ namespace Game.Core.Tests
                 {
                     new CardDefinition(Strike, 1, new IEffect[] { new DamageEffect(6) })
                 }),
+                TestContent.RatBruiser(),
                 new CombatRules(energyPerTurn: 3, cardsDrawnPerTurn: 5));
 
             var deck = new List<CardId> { Strike, Strike, Strike, Strike, Strike };

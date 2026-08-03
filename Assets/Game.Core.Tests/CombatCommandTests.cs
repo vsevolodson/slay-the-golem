@@ -16,6 +16,7 @@ namespace Game.Core.Tests
 
         private static CombatConfig MakeConfig() => new CombatConfig(
             new CardCatalog(new[] { new CardDefinition(Strike, 1, new IEffect[] { new BlockEffect(0) }), new CardDefinition(Defend, 1, new IEffect[] { new DamageEffect(0)}) }),
+            TestContent.RatBruiser(),
             new CombatRules(energyPerTurn: 3, cardsDrawnPerTurn: 5));
 
         private static CombatSetup MakeSetup(IReadOnlyList<CardId> deck) =>

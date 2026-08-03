@@ -21,6 +21,7 @@ namespace Game.Core.Tests
                     new CardDefinition(Strike, 1, new IEffect[] { new DamageEffect(6) }),
                     new CardDefinition(Defend, 1, new IEffect[] { new BlockEffect(5) })
                 }),
+                TestContent.RatBruiser(),
                 new CombatRules(energyPerTurn: 3, cardsDrawnPerTurn: 5));
 
             var deck = new List<CardId> { Strike, Strike, Strike, Defend, Defend };

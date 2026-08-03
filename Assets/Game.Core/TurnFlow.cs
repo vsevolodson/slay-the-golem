@@ -13,11 +13,13 @@ namespace Game.Core
         private readonly CombatState _state;
         private readonly CombatRules _rules;
         private readonly EffectSystem _effects;
+        private readonly EnemyDefinition _enemy;
 
-        internal TurnFlow(CombatState state, CombatRules rules)
+        internal TurnFlow(CombatState state, CombatRules rules, EnemyDefinition enemy)
         {
             _state = state ?? throw new ArgumentNullException(nameof(state));
             _rules = rules ?? throw new ArgumentNullException(nameof(rules));
+            _enemy = enemy ?? throw new ArgumentNullException(nameof(enemy));
             _effects = new EffectSystem(state);
         }
 
@@ -59,6 +61,26 @@ namespace Game.Core
                 return;
 
             _state.Enemy.Combatant.ReduceVulnerable(1);
+
+            PerformIntent();
+        }
+
+        private void PerformIntent()
+        {
+            var intent = _enemy.Cycle[_state.Enemy.IntentIndex];
+
+            if (intent.Damage > 0)
+                _effects.Apply(new DamageEffect(intent.Damage), Side.Enemy);
+
+            if (intent.Block > 0)
+                _effects.Apply(new BlockEffect(intent.Block), Side.Enemy);
+
+            ShowNextIntent();
+        }
+
+        private void ShowNextIntent()
+        {
+            _state.Enemy.SetIntentIndex((_state.Enemy.IntentIndex + 1) % _enemy.Cycle.Count);
         }
     }
 }
