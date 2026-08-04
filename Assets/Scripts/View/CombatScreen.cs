@@ -10,7 +10,7 @@ namespace Game.Unity.View
     public sealed class CombatScreen : MonoBehaviour
     {
         [SerializeField] private CombatContentAsset _content;
-        [SerializeField] private string _enemyId = "rat_bruiser";
+        [SerializeField] private string _enemyId = "rat";
         [SerializeField] private int _playerMaxHealth = 50;
         [SerializeField] private long _seed = 1;
 
@@ -42,7 +42,6 @@ namespace Game.Unity.View
             Redraw();
         }
 
-        // Wired to the End Turn button in the scene.
         public void OnEndTurnClicked()
         {
             _combat.Execute(new EndTurnCommand());
