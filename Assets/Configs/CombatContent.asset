@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a6d396afe9ff741a7a37023662a503, type: 3}
+  m_Name: CombatContent
+  m_EditorClassIdentifier: Scripts::Game.Unity.Config.CombatContentAsset
+  _cards:
+  - {fileID: 11400000, guid: b1d41dd1cb3695148ad4e2c2aedebe87, type: 2}
+  - {fileID: 11400000, guid: 5f0792d9b7b170b4894fd9315b3687b7, type: 2}
+  - {fileID: 11400000, guid: e65a4d0cdea989644a18c12267255156, type: 2}
+  _enemies:
+  - {fileID: 11400000, guid: c05bad80e5fe61741be1efb84858072b, type: 2}
+  _startingDeck:
+  - {fileID: 11400000, guid: b1d41dd1cb3695148ad4e2c2aedebe87, type: 2}
+  - {fileID: 11400000, guid: b1d41dd1cb3695148ad4e2c2aedebe87, type: 2}
+  - {fileID: 11400000, guid: b1d41dd1cb3695148ad4e2c2aedebe87, type: 2}
+  - {fileID: 11400000, guid: b1d41dd1cb3695148ad4e2c2aedebe87, type: 2}
+  - {fileID: 11400000, guid: b1d41dd1cb3695148ad4e2c2aedebe87, type: 2}
+  - {fileID: 11400000, guid: 5f0792d9b7b170b4894fd9315b3687b7, type: 2}
+  - {fileID: 11400000, guid: 5f0792d9b7b170b4894fd9315b3687b7, type: 2}
+  - {fileID: 11400000, guid: 5f0792d9b7b170b4894fd9315b3687b7, type: 2}
+  - {fileID: 11400000, guid: 5f0792d9b7b170b4894fd9315b3687b7, type: 2}
+  - {fileID: 11400000, guid: e65a4d0cdea989644a18c12267255156, type: 2}
+  _energyPerTurn: 3
+  _cardsDrawnPerTurn: 5
