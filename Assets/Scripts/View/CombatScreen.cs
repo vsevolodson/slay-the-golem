@@ -22,11 +22,16 @@ namespace Game.Unity.View
         [SerializeField] private TextMeshProUGUI _piles;
         [SerializeField] private TextMeshProUGUI _turn;
         [SerializeField] private TextMeshProUGUI _outcome;
+        [SerializeField] private RectTransform _playZone;
+        [SerializeField] private GameObject _playZoneHighlight;
 
         private Combat _combat;
 
         private void Start()
         {
+            _handView.CardPickedUp += OnCardPickedUp;
+            _handView.CardDropped += OnCardDropped;
+
             var enemy = _content.FindEnemy(_enemyId);
 
             var setup = new CombatSetup(
@@ -72,6 +77,21 @@ namespace Game.Unity.View
                 case CombatOutcome.PlayerLost: return "Defeat";
                 default: return string.Empty;
             }
+        }
+
+        private void OnCardPickedUp(CardView view)
+        {
+            _playZoneHighlight.SetActive(true);
+        }
+
+        private void OnCardDropped(CardView view, Vector2 screenPosition)
+        {
+            _playZoneHighlight.SetActive(false);
+
+            if (RectTransformUtility.RectangleContainsScreenPoint(_playZone, screenPosition, null))
+                _combat.Execute(new PlayCardCommand(view.Card));
+
+            Redraw();
         }
     }
 }
