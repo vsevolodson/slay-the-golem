@@ -69,7 +69,7 @@ namespace Game.Unity.View
             switch (outcome)
             {
                 case CombatOutcome.PlayerWon: return "Victory";
-                case CombatOutcome.PlayerLost: return "Lost";
+                case CombatOutcome.PlayerLost: return "Defeat";
                 default: return string.Empty;
             }
         }

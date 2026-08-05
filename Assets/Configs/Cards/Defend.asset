@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338c993a0a11c1842963d184ded7d8ef, type: 3}
   m_Name: Defend
   m_EditorClassIdentifier: Scripts::Game.Unity.Config.CardAsset
-  _id: 
-  _title: 
-  _cost: 0
+  _id: defend
+  _title: Defend
+  _cost: 1
   _effects:
   - Kind: 1
     Amount: 5
