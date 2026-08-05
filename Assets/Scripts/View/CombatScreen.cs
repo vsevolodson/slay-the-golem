@@ -58,7 +58,7 @@ namespace Game.Unity.View
         {
             var state = _combat.State;
 
-            _playerView.Show("Player", state.Player.Combatant);
+            _playerView.Show("Gregor", state.Player.Combatant);
             _enemyView.Show(_content.FindEnemy(state.Enemy.EnemyId).Title, state.Enemy.Combatant);
             _intentView.Show(_combat.EnemyIntent);
             _handView.Show(state.Player.Hand, _content);
