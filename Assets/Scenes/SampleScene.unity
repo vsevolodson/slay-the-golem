@@ -622,6 +622,7 @@ GameObject:
   - component: {fileID: 231784710}
   - component: {fileID: 231784709}
   - component: {fileID: 231784712}
+  - component: {fileID: 231784713}
   m_Layer: 5
   m_Name: EnemyPanel
   m_TagString: Untagged
@@ -691,15 +692,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5450981, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -5237074582503671387, guid: 452028a5a36e102459826291f0e308d2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -732,6 +733,24 @@ MonoBehaviour:
   _health: {fileID: 2060274825}
   _block: {fileID: 416767506}
   _statuses: {fileID: 1738932624}
+--- !u!114 &231784713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231784707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa67d68b615d4e44ba3c7258aec4c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Scripts::Game.Unity.View.RandomSpriteView
+  _image: {fileID: 231784710}
+  _variants:
+  - {fileID: -5237074582503671387, guid: 452028a5a36e102459826291f0e308d2, type: 3}
+  - {fileID: 7809157847302988670, guid: 31836efdfb8a19f4d956e84f09178cdc, type: 3}
+  - {fileID: 3671767108691803983, guid: 8a6404f9c6ec57943bb1f6dd21804e15, type: 3}
+  _key: general_panel_variant
 --- !u!1 &307705833
 GameObject:
   m_ObjectHideFlags: 0
