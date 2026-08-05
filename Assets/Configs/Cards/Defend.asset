@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Defend
   m_EditorClassIdentifier: Scripts::Game.Unity.Config.CardAsset
   _id: defend
-  _title: Defend
+  _title: Harden
   _cost: 1
   _effects:
   - Kind: 1
     Amount: 5
+  _icon: {fileID: 9168803302060737653, guid: 12fe1396f60bbe4499111ef1fd70661f, type: 3}

@@ -13,10 +13,12 @@ namespace Game.Unity.Config
         [SerializeField] private string _title;
         [SerializeField] private int _cost;
         [SerializeField] private List<EffectEntry> _effects = new List<EffectEntry>();
+        [SerializeField] private Sprite _icon;
 
         public CardId Id => new CardId(_id);
         public string Title => _title;
         public int Cost => _cost;
+        public Sprite Icon => _icon;
 
         public CardDefinition ToDefinition()
         {

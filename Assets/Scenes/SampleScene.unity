@@ -747,7 +747,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Scripts::Game.Unity.View.RandomSpriteView
   _image: {fileID: 231784710}
   _variants:
-  - {fileID: -5237074582503671387, guid: 452028a5a36e102459826291f0e308d2, type: 3}
   - {fileID: 7809157847302988670, guid: 31836efdfb8a19f4d956e84f09178cdc, type: 3}
   - {fileID: 3671767108691803983, guid: 8a6404f9c6ec57943bb1f6dd21804e15, type: 3}
   _key: general_panel_variant
