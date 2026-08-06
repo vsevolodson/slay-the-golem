@@ -18,4 +18,4 @@ MonoBehaviour:
   _effects:
   - Kind: 2
     Amount: 2
-  _icon: {fileID: 0}
+  _icon: {fileID: -1029357291845207736, guid: f9674cb64736cb942ae5a3c1453bd03d, type: 3}
