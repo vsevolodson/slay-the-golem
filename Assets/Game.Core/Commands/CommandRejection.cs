@@ -7,6 +7,8 @@ namespace Game.Core.Commands
         NotYourTurn,
         CardNotInHand,
         NotEnoughEnergy,
-        UnknownCommand
+        UnknownCommand,
+        WrongPhase,
+        CardNotOffered
     }
 }
