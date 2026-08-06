@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Poison
   m_EditorClassIdentifier: Scripts::Game.Unity.Config.CardAsset
   _id: poison
-  _title: 
-  _cost: 0
+  _title: Poison
+  _cost: 1
   _effects:
   - Kind: 2
     Amount: 2
+  _icon: {fileID: 0}

@@ -96,7 +96,6 @@ namespace Game.Core
                 return;
 
             State.SetHealth(CurrentCombat.State.Player.Combatant.Health);
-            CurrentCombat = null;
 
             if (outcome == CombatOutcome.PlayerLost)
             {

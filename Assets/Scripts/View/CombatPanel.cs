@@ -42,8 +42,6 @@ namespace Game.Unity.View
             _turn.text = $"Turn {state.TurnNumber}";
         }
 
-        public void OnEndTurnClicked() => CommandIssued?.Invoke(new EndTurnCommand());
-
         private void OnCardPickedUp(CardView view) => _playZoneHighlight.SetActive(true);
 
         private void OnCardDropped(CardView view, Vector2 screenPosition)

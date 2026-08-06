@@ -13,6 +13,9 @@ namespace Game.Unity.Config
         [SerializeField] private List<CardAsset> _startingDeck = new List<CardAsset>();
         [SerializeField] private int _energyPerTurn = 3;
         [SerializeField] private int _cardsDrawnPerTurn = 5;
+        [SerializeField] private List<EnemyAsset> _fights = new List<EnemyAsset>();
+        [SerializeField] private List<CardAsset> _rewardPool = new List<CardAsset>();
+        [SerializeField] private int _rewardChoices = 3;
 
         public CombatConfig ToCombatConfig()
         {
@@ -59,6 +62,17 @@ namespace Game.Unity.Config
             }
 
             return null;
+        }
+
+        public RunConfig ToRunConfig(int playerMaxHealth)
+        {
+            var fights = new List<string>();
+            foreach (var enemy in _fights) fights.Add(enemy.Id);
+
+            var rewards = new List<CardId>();
+            foreach (var card in _rewardPool) rewards.Add(card.Id);
+
+            return new RunConfig(ToCombatConfig(), fights, rewards, StartingDeck(), playerMaxHealth, _rewardChoices);
         }
     }
 }

@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4093570
 RectTransform:
   m_ObjectHideFlags: 0
@@ -149,7 +149,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 427866899}
+  m_Father: {fileID: 440186659}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -966,7 +966,7 @@ GameObject:
   - component: {fileID: 412110253}
   - component: {fileID: 412110252}
   m_Layer: 5
-  m_Name: EndTurnButton
+  m_Name: ActionButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -985,7 +985,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1797974930}
-  m_Father: {fileID: 427866899}
+  m_Father: {fileID: 440186659}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -1036,9 +1036,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 427866900}
-        m_TargetAssemblyTypeName: Game.Unity.View.CombatPanel, Scripts
-        m_MethodName: OnEndTurnClicked
+      - m_Target: {fileID: 678206690}
+        m_TargetAssemblyTypeName: Game.Unity.View.RunScreen, Scripts
+        m_MethodName: OnActionButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1283,8 +1283,6 @@ RectTransform:
   - {fileID: 2030264745}
   - {fileID: 1853818828}
   - {fileID: 1720246350}
-  - {fileID: 412110251}
-  - {fileID: 4093570}
   - {fileID: 992799424}
   m_Father: {fileID: 440186659}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1546,6 +1544,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 427866899}
+  - {fileID: 4093570}
+  - {fileID: 412110251}
   - {fileID: 2090486856}
   - {fileID: 665385423}
   m_Father: {fileID: 0}
@@ -1830,6 +1830,58 @@ MonoBehaviour:
   - {fileID: 869337785}
   - {fileID: 1219012679}
   - {fileID: 2017128961}
+--- !u!1 &678206689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 678206691}
+  - component: {fileID: 678206690}
+  m_Layer: 0
+  m_Name: RunScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &678206690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678206689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8b96f69f2b56c459c9046d88a4934f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Scripts::Game.Unity.View.RunScreen
+  _content: {fileID: 11400000, guid: e4a72605ab73a53418ea03cd601af808, type: 2}
+  _playerMaxHealth: 50
+  _seed: 1
+  _combatPanel: {fileID: 427866900}
+  _rewardPanel: {fileID: 665385424}
+  _outcome: {fileID: 4093571}
+  _actionButton: {fileID: 412110250}
+  _actionButtonLabel: {fileID: 1797974931}
+--- !u!4 &678206691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678206689}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &698078919
 GameObject:
   m_ObjectHideFlags: 0
@@ -3963,3 +4015,4 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 440186659}
   - {fileID: 83345181}
+  - {fileID: 678206691}
