@@ -18,7 +18,7 @@ namespace Game.Unity.View
                 card.Clicked += OnCardClicked;
         }
 
-        public void Show(IReadOnlyList<CardId> offer, CombatContentAsset content)
+        public void Show(IReadOnlyList<CardId> offer, GameContentAsset content)
         {
             for (var i = 0; i < _cards.Length; i++)
             {

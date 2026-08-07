@@ -17,7 +17,7 @@ namespace Game.Unity.View
         public event Action<CardView> CardPickedUp;
         public event Action<CardView, Vector2> CardDropped;
 
-        public void Show(IReadOnlyList<CardId> hand, CombatContentAsset content)
+        public void Show(IReadOnlyList<CardId> hand, GameContentAsset content)
         {
             while (_views.Count < hand.Count)
                 _views.Add(CreateView());

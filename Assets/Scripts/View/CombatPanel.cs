@@ -27,7 +27,7 @@ namespace Game.Unity.View
             _handView.CardDropped += OnCardDropped;
         }
 
-        public void Show(Combat combat, CombatContentAsset content)
+        public void Show(Combat combat, GameContentAsset content)
         {
             var state = combat.State;
             var enemy = content.GetEnemy(state.Enemy.EnemyId);

@@ -6,8 +6,8 @@ using UnityEngine;
 
 namespace Game.Unity.Config
 {
-    [CreateAssetMenu(menuName = "Scriptable Objects/Combat Content", fileName = "CombatContent")]
-    public sealed class CombatContentAsset : ScriptableObject
+    [CreateAssetMenu(menuName = "Scriptable Objects/Game Content", fileName = "GameContent")]
+    public sealed class GameContentAsset : ScriptableObject
     {
         [SerializeField] private List<CardAsset> _cards = new List<CardAsset>();
         [SerializeField] private List<EnemyAsset> _enemies = new List<EnemyAsset>();

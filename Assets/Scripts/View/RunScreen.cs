@@ -11,7 +11,7 @@ namespace Game.Unity.View
 {
     public sealed class RunScreen : MonoBehaviour
     {
-        [SerializeField] private CombatContentAsset _content;
+        [SerializeField] private GameContentAsset _content;
         [SerializeField] private int _playerMaxHealth = 50;
         [SerializeField] private long _seed = 1;
 
