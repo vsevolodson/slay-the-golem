@@ -89,7 +89,7 @@ namespace Game.Unity.View
             switch (phase)
             {
                 case RunPhase.Won: return "Victory";
-                case RunPhase.Lost: return "Dedeat";
+                case RunPhase.Lost: return "Defeat";
                 default: return string.Empty;
             }
         }
