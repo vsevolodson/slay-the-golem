@@ -30,7 +30,7 @@ namespace Game.Unity.View
         public void Show(Combat combat, CombatContentAsset content)
         {
             var state = combat.State;
-            var enemy = content.FindEnemy(state.Enemy.EnemyId);
+            var enemy = content.GetEnemy(state.Enemy.EnemyId);
 
             _playerView.Show("Gregor", state.Player.Combatant);
             _enemyView.Show(enemy.Title, state.Enemy.Combatant);

@@ -26,7 +26,7 @@ namespace Game.Unity.View
                 _cards[i].gameObject.SetActive(visible);
 
                 if (visible)
-                    _cards[i].Show(offer[i], content.FindCard(offer[i]));
+                    _cards[i].Show(offer[i], content.GetCard(offer[i]));
             }
         }
 

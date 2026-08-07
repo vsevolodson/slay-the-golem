@@ -28,7 +28,7 @@ namespace Game.Unity.View
                 _views[i].gameObject.SetActive(visible);
 
                 if (visible)
-                    _views[i].Show(hand[i], content.FindCard(hand[i]));
+                    _views[i].Show(hand[i], content.GetCard(hand[i]));
             }
         }
 
