@@ -26,6 +26,9 @@ namespace Game.Unity.View
 
         private void Start()
         {
+            if (_content == null)
+                throw new InvalidOperationException($"{name}: content asset is not assigned");
+
             _config = _content.ToRunConfig(_playerMaxHealth);
 
             _combatPanel.CommandIssued += OnCommandIssued;
