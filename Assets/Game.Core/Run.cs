@@ -31,14 +31,66 @@ namespace Game.Core
             return run;
         }
 
-        public static Run Resume(RunState state, RunConfig config)
+        public static bool TryResume(RunState state, RunConfig config, out Run run)
         {
-            var run = new Run(state, config);
+            run = null;
 
-            if (run.State.Phase == RunPhase.InCombat)
-                run.StartCombat();
+            if (state == null || config == null)
+                return false;
 
-            return run;
+            if (!CanResume(state, config))
+                return false;
+
+            try
+            {
+                var resumed = new Run(state, config);
+
+                if (resumed.State.Phase == RunPhase.InCombat)
+                    resumed.StartCombat();
+
+                run = resumed;
+            }
+            catch (ArgumentException)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private static bool CanResume(RunState state, RunConfig config)
+        {
+            if (state.Deck == null || state.RewardOffer == null || state.Rng == null)
+                return false;
+
+            if (state.MaxHealth <= 0)
+                return false;
+
+            if (state.Health < 0 || state.Health > state.MaxHealth)
+                return false;
+
+            if (state.Health == 0 && state.Phase != RunPhase.Lost)
+                return false;
+
+            if (state.FightIndex < 0 || state.FightIndex >= config.Fights.Count)
+                return false;
+
+            if (state.Phase == RunPhase.ChoosingReward && state.RewardOffer.Count == 0)
+                return false;
+
+            foreach (var card in state.Deck)
+            {
+                if (!config.Combat.Cards.Contains(card))
+                    return false;
+            }
+
+            foreach (var card in state.RewardOffer)
+            {
+                if (!config.Combat.Cards.Contains(card))
+                    return false;
+            }
+
+            return true;
         }
 
         public CommandResult Validate(ICommand command)
