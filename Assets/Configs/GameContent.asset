@@ -23,6 +23,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4d1d509b9a3dd7749aa8839fa9f02c10, type: 2}
   _enemies:
   - {fileID: 11400000, guid: c05bad80e5fe61741be1efb84858072b, type: 2}
+  - {fileID: 11400000, guid: b0bf0dd4dfe17804087ef1fc8ffad3fb, type: 2}
+  - {fileID: 11400000, guid: 85319945f6ee8634490253b9f3694449, type: 2}
   _startingDeck:
   - {fileID: 11400000, guid: b1d41dd1cb3695148ad4e2c2aedebe87, type: 2}
   - {fileID: 11400000, guid: b1d41dd1cb3695148ad4e2c2aedebe87, type: 2}
@@ -38,8 +40,8 @@ MonoBehaviour:
   _cardsDrawnPerTurn: 5
   _fights:
   - {fileID: 11400000, guid: c05bad80e5fe61741be1efb84858072b, type: 2}
-  - {fileID: 11400000, guid: c05bad80e5fe61741be1efb84858072b, type: 2}
-  - {fileID: 11400000, guid: c05bad80e5fe61741be1efb84858072b, type: 2}
+  - {fileID: 11400000, guid: b0bf0dd4dfe17804087ef1fc8ffad3fb, type: 2}
+  - {fileID: 11400000, guid: 85319945f6ee8634490253b9f3694449, type: 2}
   _rewardPool:
   - {fileID: 11400000, guid: c9291494e7e0c1e40a8a82f82461ae92, type: 2}
   - {fileID: 11400000, guid: 4d1d509b9a3dd7749aa8839fa9f02c10, type: 2}
