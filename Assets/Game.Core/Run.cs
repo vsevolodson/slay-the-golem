@@ -18,9 +18,6 @@ namespace Game.Core
         {
             State = state ?? throw new ArgumentNullException(nameof(state));
             _config = config ?? throw new ArgumentNullException(nameof(config));
-
-            if (State.Phase == RunPhase.InCombat)
-                StartCombat();
         }
 
         public static Run StartNew(RunConfig config, ulong seed)
@@ -28,12 +25,21 @@ namespace Game.Core
             if (config == null)
                 throw new ArgumentNullException(nameof(config));
 
-            var state = RunState.Create(config.PlayerMaxHealth, config.StartingDeck, seed);
+            var run = new Run(RunState.Create(config.PlayerMaxHealth, config.StartingDeck, seed), config);
+            run.BeginNextFight();
 
-            return new Run(state, config);
+            return run;
         }
 
-        public static Run Resume(RunState state, RunConfig config) => new Run(state, config);
+        public static Run Resume(RunState state, RunConfig config)
+        {
+            var run = new Run(state, config);
+
+            if (run.State.Phase == RunPhase.InCombat)
+                run.StartCombat();
+
+            return run;
+        }
 
         public CommandResult Validate(ICommand command)
         {
@@ -83,6 +89,12 @@ namespace Game.Core
             State.AddCard(command.Card);
             State.ClearRewardOffer();
             State.AdvanceFight();
+
+            BeginNextFight();
+        }
+
+        private void BeginNextFight()
+        {
             State.SetCombatSeed(State.Rng.NextUInt64());
             State.SetPhase(RunPhase.InCombat);
 

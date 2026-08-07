@@ -33,7 +33,6 @@ namespace Game.Core.State
             FightIndex = 0;
             Phase = RunPhase.InCombat;
             Rng = new XorShiftRng(seed);
-            CombatSeed = Rng.NextUInt64();
 
             _deck = new List<CardId>(deck);
             _rewardOffer = new List<CardId>();
