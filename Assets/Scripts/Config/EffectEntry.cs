@@ -8,7 +8,8 @@ namespace Game.Unity.Config
         Damage,
         Block,
         ApplyPoison,
-        ApplyVulnerable
+        ApplyVulnerable,
+        DrawCards
     }
 
     [Serializable]
@@ -25,6 +26,7 @@ namespace Game.Unity.Config
                 case EffectKind.Block: return new BlockEffect(Amount);
                 case EffectKind.ApplyPoison: return new ApplyPoisonEffect(Amount);
                 case EffectKind.ApplyVulnerable: return new ApplyVulnerableEffect(Amount);
+                case EffectKind.DrawCards: return new DrawCardsEffect(Amount);
                 default: throw new NotSupportedException($"unknown effect kind '{Kind}'");
             }
         }

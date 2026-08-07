@@ -17,6 +17,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5f0792d9b7b170b4894fd9315b3687b7, type: 2}
   - {fileID: 11400000, guid: e65a4d0cdea989644a18c12267255156, type: 2}
   - {fileID: 11400000, guid: 76b5149dbd5c16040b542f3332bd1ed4, type: 2}
+  - {fileID: 11400000, guid: 28e63f7b51d600b43990c6277fadd463, type: 2}
+  - {fileID: 11400000, guid: 7aa72d938e7763441830aacecb6b0468, type: 2}
+  - {fileID: 11400000, guid: c9291494e7e0c1e40a8a82f82461ae92, type: 2}
+  - {fileID: 11400000, guid: 4d1d509b9a3dd7749aa8839fa9f02c10, type: 2}
   _enemies:
   - {fileID: 11400000, guid: c05bad80e5fe61741be1efb84858072b, type: 2}
   _startingDeck:
@@ -37,7 +41,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c05bad80e5fe61741be1efb84858072b, type: 2}
   - {fileID: 11400000, guid: c05bad80e5fe61741be1efb84858072b, type: 2}
   _rewardPool:
+  - {fileID: 11400000, guid: c9291494e7e0c1e40a8a82f82461ae92, type: 2}
+  - {fileID: 11400000, guid: 4d1d509b9a3dd7749aa8839fa9f02c10, type: 2}
   - {fileID: 11400000, guid: 76b5149dbd5c16040b542f3332bd1ed4, type: 2}
-  - {fileID: 11400000, guid: 76b5149dbd5c16040b542f3332bd1ed4, type: 2}
-  - {fileID: 11400000, guid: 76b5149dbd5c16040b542f3332bd1ed4, type: 2}
+  - {fileID: 11400000, guid: 7aa72d938e7763441830aacecb6b0468, type: 2}
+  - {fileID: 11400000, guid: 28e63f7b51d600b43990c6277fadd463, type: 2}
   _rewardChoices: 3
+  _playerMaxHealth: 50

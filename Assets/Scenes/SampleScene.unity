@@ -1860,13 +1860,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Scripts::Game.Unity.View.RunScreen
   _content: {fileID: 11400000, guid: e4a72605ab73a53418ea03cd601af808, type: 2}
-  _playerMaxHealth: 50
   _seed: 1
   _combatPanel: {fileID: 427866900}
   _rewardPanel: {fileID: 665385424}
   _outcome: {fileID: 4093571}
   _actionButton: {fileID: 412110250}
   _actionButtonLabel: {fileID: 1797974931}
+  _saveFileName: run.json
 --- !u!4 &678206691
 Transform:
   m_ObjectHideFlags: 0
@@ -2923,7 +2923,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -40, y: 40}
-  m_SizeDelta: {x: 1000, y: 300}
+  m_SizeDelta: {x: 1500, y: 300}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1720246351
 MonoBehaviour:

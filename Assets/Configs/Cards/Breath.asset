@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 338c993a0a11c1842963d184ded7d8ef, type: 3}
-  m_Name: Toss
+  m_Name: Breath
   m_EditorClassIdentifier: Scripts::Game.Unity.Config.CardAsset
-  _id: toss
-  _title: Toss
-  _cost: 2
+  _id: breath
+  _title: Second Breath
+  _cost: 0
   _effects:
-  - Kind: 0
-    Amount: 8
-  - Kind: 3
+  - Kind: 4
     Amount: 2
-  _icon: {fileID: 8356506483537057417, guid: 4b5d49f7601b32142974a2e1fd4e842c, type: 3}
+  _icon: {fileID: -1129744925279040556, guid: d91bcad4fcd01b14ba3018bcf0ab78ac, type: 3}

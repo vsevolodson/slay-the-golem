@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 338c993a0a11c1842963d184ded7d8ef, type: 3}
-  m_Name: Toss
+  m_Name: Injection
   m_EditorClassIdentifier: Scripts::Game.Unity.Config.CardAsset
-  _id: toss
-  _title: Toss
-  _cost: 2
+  _id: injection
+  _title: Injection
+  _cost: 1
   _effects:
   - Kind: 0
-    Amount: 8
-  - Kind: 3
-    Amount: 2
-  _icon: {fileID: 8356506483537057417, guid: 4b5d49f7601b32142974a2e1fd4e842c, type: 3}
+    Amount: 4
+  - Kind: 2
+    Amount: 3
+  _icon: {fileID: -8156638820921733059, guid: 9a80baf9a55bd2b43902d4fe6f78a192, type: 3}
