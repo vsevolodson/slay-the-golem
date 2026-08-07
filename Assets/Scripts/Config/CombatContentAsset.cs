@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Game.Core.Data;
 using Game.Core.State;
@@ -42,7 +43,7 @@ namespace Game.Unity.Config
             return deck;
         }
 
-        public CardAsset FindCard(CardId id)
+        public CardAsset GetCard(CardId id)
         {
             foreach (var card in _cards)
             {
@@ -50,10 +51,10 @@ namespace Game.Unity.Config
                     return card;
             }
 
-            return null;
+            throw new InvalidOperationException($"card '{id}' is not in {name}");
         }
 
-        public EnemyAsset FindEnemy(string id)
+        public EnemyAsset GetEnemy(string id)
         {
             foreach (var enemy in _enemies)
             {
@@ -61,7 +62,7 @@ namespace Game.Unity.Config
                     return enemy;
             }
 
-            return null;
+            throw new InvalidOperationException($"enemy '{id}' is not in {name}");
         }
 
         public RunConfig ToRunConfig(int playerMaxHealth)
