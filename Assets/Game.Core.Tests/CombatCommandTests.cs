@@ -160,18 +160,5 @@ namespace Game.Core.Tests
             Assert.AreEqual(3, combat.State.Player.Hand.Count);
             Assert.AreEqual(0, combat.State.Player.DrawPile.Count);
         }
-
-        [Test]
-        public void Resume_KeepsStateAsItIs()
-        {
-            var combat = StartCombat();
-            combat.Execute(new PlayCardCommand(Strike));
-
-            var resumed = Combat.Resume(combat.State, MakeConfig());
-
-            Assert.AreEqual(1, resumed.State.TurnNumber);
-            Assert.AreEqual(2, resumed.State.Player.Energy);
-            Assert.AreEqual(4, resumed.State.Player.Hand.Count);
-        }
     }
 }

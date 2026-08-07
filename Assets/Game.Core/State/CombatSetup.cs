@@ -11,9 +11,10 @@ namespace Game.Core.State
         public string EnemyId { get; }
         public int EnemyMaxHealth { get; }
         public ulong Seed { get; }
+        public string RelicId { get; }
 
         public CombatSetup(int playerMaxHealth, int playerHealth, IReadOnlyList<CardId> startingDeck,
-            string enemyId, int enemyMaxHealth, ulong seed)
+            string enemyId, int enemyMaxHealth, ulong seed, string relicId = null)
         {
             if (playerMaxHealth <= 0)
                 throw new ArgumentOutOfRangeException(nameof(playerMaxHealth), "Max health must be positive.");
@@ -30,6 +31,7 @@ namespace Game.Core.State
             EnemyId = enemyId;
             EnemyMaxHealth = enemyMaxHealth;
             Seed = seed;
+            RelicId = relicId;
         }
     }
 }

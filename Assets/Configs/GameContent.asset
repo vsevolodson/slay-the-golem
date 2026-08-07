@@ -48,3 +48,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 28e63f7b51d600b43990c6277fadd463, type: 2}
   _rewardChoices: 3
   _playerMaxHealth: 50
+  _relics:
+  - {fileID: 11400000, guid: 4ef56b9fef5103d4aa140f507bad1a26, type: 2}
+  _activeRelic: {fileID: 11400000, guid: 4ef56b9fef5103d4aa140f507bad1a26, type: 2}

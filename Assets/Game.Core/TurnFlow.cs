@@ -14,13 +14,15 @@ namespace Game.Core
         private readonly CombatRules _rules;
         private readonly EffectSystem _effects;
         private readonly EnemyDefinition _enemy;
+        private readonly RelicDefinition _relic;
 
-        internal TurnFlow(CombatState state, CombatRules rules, EnemyDefinition enemy)
+        internal TurnFlow(CombatState state, CombatRules rules, EnemyDefinition enemy, RelicDefinition relic = null)
         {
             _state = state ?? throw new ArgumentNullException(nameof(state));
             _rules = rules ?? throw new ArgumentNullException(nameof(rules));
             _enemy = enemy ?? throw new ArgumentNullException(nameof(enemy));
             _effects = new EffectSystem(state);
+            _relic = relic;
         }
 
         internal void BeginPlayerTurn()
@@ -29,6 +31,9 @@ namespace Game.Core
             _state.AdvanceTurnNumber();
 
             _state.Player.Combatant.ClearBlock();
+
+            if (_state.TurnNumber == 1 && _relic != null)
+                _effects.Apply(_relic.CombatStartEffects, Side.Player);
 
             _effects.Apply(PoisonTick, Side.Player);
             if (_state.Outcome != CombatOutcome.InProgress)

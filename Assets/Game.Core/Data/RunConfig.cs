@@ -13,13 +13,14 @@ namespace Game.Core.Data
         public CombatConfig Combat { get; }
         public int PlayerMaxHealth { get; }
         public int RewardChoices { get; }
+        public string RelicId { get; }
 
         public IReadOnlyList<string> Fights => _fights;
         public IReadOnlyList<CardId> RewardPool => _rewardPool;
         public IReadOnlyList<CardId> StartingDeck => _startingDeck;
 
         public RunConfig(CombatConfig combat, IEnumerable<string> fights, IEnumerable<CardId> rewardPool,
-            IEnumerable<CardId> startingDeck, int playerMaxHealth, int rewardChoices)
+            IEnumerable<CardId> startingDeck, int playerMaxHealth, int rewardChoices, string relicId = null)
         {
             Combat = combat ?? throw new ArgumentNullException(nameof(combat));
 
@@ -33,9 +34,12 @@ namespace Game.Core.Data
                 throw new ArgumentOutOfRangeException(nameof(playerMaxHealth));
             if (rewardChoices <= 0)
                 throw new ArgumentOutOfRangeException(nameof(rewardChoices));
+            if (!string.IsNullOrEmpty(relicId) && !combat.Relics.Contains(relicId))
+                throw new ArgumentException($"relic '{relicId}' is not in the catalog", nameof(relicId));
 
             PlayerMaxHealth = playerMaxHealth;
             RewardChoices = rewardChoices;
+            RelicId = relicId;
         }
     }
 }

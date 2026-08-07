@@ -18,7 +18,7 @@ namespace Game.Core
         public CombatState State { get; }
         public EnemyIntent EnemyIntent => _enemy.Cycle[State.Enemy.IntentIndex];
 
-        private Combat(CombatState state, CombatConfig config)
+        private Combat(CombatState state, CombatConfig config, RelicDefinition relic)
         {
             State = state ?? throw new ArgumentNullException(nameof(state));
             _config = config ?? throw new ArgumentNullException(nameof(config));
@@ -26,21 +26,20 @@ namespace Game.Core
             RequireKnownCards(state, config.Cards);
 
             _enemy = config.Enemies.Get(state.Enemy.EnemyId);
-            _turnFlow = new TurnFlow(state, config.Rules, _enemy);
+            _turnFlow = new TurnFlow(state, config.Rules, _enemy, relic);
             _effects = new EffectSystem(state);
         }
 
         public static Combat StartNew(CombatSetup setup, CombatConfig config)
         {
-            var combat = new Combat(CombatState.Create(setup), config);
+            var relic = string.IsNullOrEmpty(setup.RelicId) ? null : config.Relics.Get(setup.RelicId);
+            var combat = new Combat(CombatState.Create(setup), config, relic);
 
             combat.ShuffleStartingDeck();
             combat._turnFlow.BeginPlayerTurn();
 
             return combat;
         }
-
-        public static Combat Resume(CombatState state, CombatConfig config) => new Combat(state, config);
 
         public CommandResult Validate(ICommand command)
         {

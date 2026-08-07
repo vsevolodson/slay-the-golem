@@ -25,7 +25,8 @@ namespace Game.Core
             if (config == null)
                 throw new ArgumentNullException(nameof(config));
 
-            var run = new Run(RunState.Create(config.PlayerMaxHealth, config.StartingDeck, seed), config);
+            var run = new Run(
+                RunState.Create(config.PlayerMaxHealth, config.StartingDeck, seed, config.RelicId), config);
             run.BeginNextFight();
 
             return run;
@@ -76,6 +77,9 @@ namespace Game.Core
                 return false;
 
             if (state.Phase == RunPhase.ChoosingReward && state.RewardOffer.Count == 0)
+                return false;
+
+            if (!string.IsNullOrEmpty(state.RelicId) && !config.Combat.Relics.Contains(state.RelicId))
                 return false;
 
             foreach (var card in state.Deck)
@@ -195,7 +199,8 @@ namespace Game.Core
                 State.Deck,
                 enemy.Id,
                 enemy.MaxHealth,
-                State.CombatSeed);
+                State.CombatSeed,
+                State.RelicId);
 
             CurrentCombat = Combat.StartNew(setup, _config.Combat);
         }

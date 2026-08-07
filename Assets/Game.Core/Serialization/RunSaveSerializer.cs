@@ -6,7 +6,7 @@ namespace Game.Core.Serialization
 {
     public static class RunSaveSerializer
     {
-        public const int CurrentVersion = 1;
+        public const int CurrentVersion = 2;
 
         public static string Save(RunState state)
         {

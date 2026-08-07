@@ -18,6 +18,8 @@ namespace Game.Unity.Config
         [SerializeField] private List<CardAsset> _rewardPool = new List<CardAsset>();
         [SerializeField] private int _rewardChoices = 3;
         [SerializeField] private int _playerMaxHealth = 50;
+        [SerializeField] private List<RelicAsset> _relics = new List<RelicAsset>();
+        [SerializeField] private RelicAsset _activeRelic;
 
         public CombatConfig ToCombatConfig()
         {
@@ -29,10 +31,15 @@ namespace Game.Unity.Config
             foreach (var enemy in _enemies)
                 enemies.Add(enemy.ToDefinition());
 
+            var relics = new List<RelicDefinition>();
+            foreach (var relic in _relics)
+                relics.Add(relic.ToDefinition());
+
             return new CombatConfig(
                 new CardCatalog(cards),
                 new EnemyCatalog(enemies),
-                new CombatRules(_energyPerTurn, _cardsDrawnPerTurn));
+                new CombatRules(_energyPerTurn, _cardsDrawnPerTurn),
+                new RelicCatalog(relics));
         }
 
         public List<CardId> StartingDeck()
@@ -74,7 +81,8 @@ namespace Game.Unity.Config
             var rewards = new List<CardId>();
             foreach (var card in _rewardPool) rewards.Add(card.Id);
 
-            return new RunConfig(ToCombatConfig(), fights, rewards, StartingDeck(), _playerMaxHealth, _rewardChoices);
+            return new RunConfig(ToCombatConfig(), fights, rewards, StartingDeck(), _playerMaxHealth, _rewardChoices,
+                _activeRelic != null ? _activeRelic.Id : null);
         }
     }
 }

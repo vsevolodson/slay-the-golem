@@ -17,11 +17,12 @@ namespace Game.Core.State
         [JsonProperty] public RunPhase Phase { get; private set; }
         [JsonProperty] public XorShiftRng Rng { get; private set; }
         [JsonProperty] public ulong CombatSeed { get; private set; }
+        [JsonProperty] public string RelicId { get; private set; }
 
         public IReadOnlyList<CardId> Deck => _deck;
         public IReadOnlyList<CardId> RewardOffer => _rewardOffer;
 
-        private RunState(int maxHealth, IEnumerable<CardId> deck, ulong seed)
+        private RunState(int maxHealth, IEnumerable<CardId> deck, ulong seed, string relicId = null)
         {
             if (maxHealth <= 0)
                 throw new ArgumentOutOfRangeException(nameof(maxHealth), "max health must be positive");
@@ -33,6 +34,7 @@ namespace Game.Core.State
             FightIndex = 0;
             Phase = RunPhase.InCombat;
             Rng = new XorShiftRng(seed);
+            RelicId = relicId;
 
             _deck = new List<CardId>(deck);
             _rewardOffer = new List<CardId>();
@@ -43,8 +45,8 @@ namespace Game.Core.State
         {
         }
 
-        public static RunState Create(int maxHealth, IEnumerable<CardId> startingDeck, ulong seed) =>
-            new RunState(maxHealth, startingDeck, seed);
+        public static RunState Create(int maxHealth, IEnumerable<CardId> startingDeck, ulong seed, string relicId = null) =>
+            new RunState(maxHealth, startingDeck, seed, relicId);
 
         internal void SetHealth(int health) => Health = Math.Max(0, health);
 
