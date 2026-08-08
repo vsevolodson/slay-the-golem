@@ -84,5 +84,7 @@ namespace Game.Unity.Config
             return new RunConfig(ToCombatConfig(), fights, rewards, StartingDeck(), _playerMaxHealth, _rewardChoices,
                 _activeRelic != null ? _activeRelic.Id : null);
         }
+
+        public IReadOnlyList<CardAsset> Cards => _cards;
     }
 }
