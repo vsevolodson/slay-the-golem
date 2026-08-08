@@ -32,8 +32,8 @@ namespace Game.Unity.View
             var state = combat.State;
             var enemy = content.GetEnemy(state.Enemy.EnemyId);
 
-            _playerView.Show("Gregor", state.Player.Combatant);
-            _enemyView.Show(enemy.Title, state.Enemy.Combatant);
+            _playerView.Show("Gregor", null, state.Player.Combatant);
+            _enemyView.Show(enemy.Title, enemy.Portrait, state.Enemy.Combatant);
             _intentView.Show(combat.EnemyIntent);
             _handView.Show(state.Player.Hand, content);
 

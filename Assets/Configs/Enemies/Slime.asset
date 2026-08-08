@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Scripts::Game.Unity.Config.EnemyAsset
   _id: slime
   _title: Slime
+  _portrait: {fileID: -2182124076254010665, guid: 5da03273a40e34a43bd34369b099a61f, type: 3}
   _maxHealth: 30
   _cycle:
   - Damage: 6

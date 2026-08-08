@@ -687,7 +687,6 @@ GameObject:
   - component: {fileID: 231784710}
   - component: {fileID: 231784709}
   - component: {fileID: 231784712}
-  - component: {fileID: 231784713}
   m_Layer: 5
   m_Name: EnemyPanel
   m_TagString: Untagged
@@ -795,26 +794,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Scripts::Game.Unity.View.CombatantView
   _title: {fileID: 1521287595}
+  _portrait: {fileID: 231784710}
   _health: {fileID: 2060274825}
   _block: {fileID: 416767506}
   _statuses: {fileID: 1738932624}
---- !u!114 &231784713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231784707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa67d68b615d4e44ba3c7258aec4c2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Scripts::Game.Unity.View.RandomSpriteView
-  _image: {fileID: 231784710}
-  _variants:
-  - {fileID: 7809157847302988670, guid: 31836efdfb8a19f4d956e84f09178cdc, type: 3}
-  - {fileID: 3671767108691803983, guid: 8a6404f9c6ec57943bb1f6dd21804e15, type: 3}
-  _key: general_panel_variant
 --- !u!1 &307705833
 GameObject:
   m_ObjectHideFlags: 0
@@ -2817,8 +2800,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3360,6 +3343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Scripts::Game.Unity.View.CombatantView
   _title: {fileID: 698078921}
+  _portrait: {fileID: 0}
   _health: {fileID: 145806614}
   _block: {fileID: 307705835}
   _statuses: {fileID: 773662682}

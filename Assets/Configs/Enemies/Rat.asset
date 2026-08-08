@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Scripts::Game.Unity.Config.EnemyAsset
   _id: rat
   _title: Rat
+  _portrait: {fileID: 7809157847302988670, guid: 31836efdfb8a19f4d956e84f09178cdc, type: 3}
   _maxHealth: 24
   _cycle:
   - Damage: 8

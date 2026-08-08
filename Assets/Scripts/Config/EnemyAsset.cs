@@ -17,11 +17,13 @@ namespace Game.Unity.Config
     {
         [SerializeField] private string _id;
         [SerializeField] private string _title;
+        [SerializeField] private Sprite _portrait;
         [SerializeField] private int _maxHealth;
         [SerializeField] private List<IntentEntry> _cycle = new List<IntentEntry>();
 
         public string Id => _id;
         public string Title => _title;
+        public Sprite Portrait => _portrait;
         public int MaxHealth => _maxHealth;
 
         public EnemyDefinition ToDefinition()

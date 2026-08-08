@@ -1,19 +1,28 @@
 using Game.Core.State;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game.Unity.View
 {
     public sealed class CombatantView : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _title;
+        [SerializeField] private Image _portrait;
         [SerializeField] private TextMeshProUGUI _health;
         [SerializeField] private TextMeshProUGUI _block;
         [SerializeField] private TextMeshProUGUI _statuses;
 
-        public void Show(string title, Combatant combatant)
+        public void Show(string title, Sprite portrait, Combatant combatant)
         {
             _title.text = title;
+
+            if (_portrait != null)
+            {
+                _portrait.enabled = portrait != null;
+                _portrait.sprite = portrait;
+            }
+            
             _health.text = $"{combatant.Health}/{combatant.MaxHealth}";
             _block.text = combatant.Block > 0 ? $"Block {combatant.Block}" : string.Empty;
             _statuses.text = Statuses(combatant);

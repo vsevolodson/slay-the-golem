@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Scripts::Game.Unity.Config.EnemyAsset
   _id: golem
   _title: Golem
+  _portrait: {fileID: 368543389579951487, guid: 946d4d63deeecec4480c1df60a485b83, type: 3}
   _maxHealth: 46
   _cycle:
   - Damage: 7
